@@ -1,44 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="css/estilos.css">
+
+<title>Colores Aleatorios</title>
+<style>
+    canvas {
+        border: 1px solid black;
+    }
+</style>
 </head>
 <body>
-    <h1>Canvas básico - Rectágulos</h1>
-    <canvas id="miCanvas" width="500" height="300">
-        Tu navegador no soporta canvas 
-    </canvas>
+    <h1>Colores aleatorios</h1>
+    <canvas id="miCanvas" width="500" height="500"></canvas>
     <script>
-        window.onload = function()
-        {
+        window.onload = function() {
             var canvas = document.getElementById("miCanvas");
-            if(canvas && canvas.getContext)
-            {
+            if (canvas && canvas.getContext) {
                 var ctx = canvas.getContext("2d");
-                if(ctx)
-                {
-                    // Aqui es donde dibujamos 
+                if (ctx) {
+                    for (i = 0; i < 10; i++) {
+                        for (j = 0; j < 10; j++) {
+                            // Generar colores aleatorios
+                            var red = Math.floor(Math.random() * 256);
+                            var green = Math.floor(Math.random() * 256);
+                            var blue = Math.floor(Math.random() * 256);
+                            var alpha = Math.random(); // Valor aleatorio entre 0 y 1
 
-                    for(i=0; i<10; i++)
-                    {
-                        for(j=0; j<10; j++)
-                        {
-                            // Definicion de colores 
-                            //ctx.fillStyle= "#00ff00"; // color de relleno
-                            ctx.fillStyle = "rgbaa(175, 122, 197)";
-                            ctx.strokeStyle = "#ff0000"; // Color de borde 
-                            ctx.lineWidth = 5; // Grosor de linea 
+                            // Establecer el color de relleno y el borde
+                            ctx.fillStyle = "rgba(" + red + "," + green + "," + blue + "," + alpha + ")";
+                            ctx.strokeStyle = "#ff0000"; // Color de borde fijo
+                            ctx.lineWidth = 5; // Grosor de línea
 
-                            // Dibujamos rectangulos
-                            ctx.fillRect(i*50,j*50,50,50); // Parametros: (x, y, width, 
-                            ctx.strokeRect(i*50,50,50);
-            
+                            // Dibujar rectángulos
+                            ctx.fillRect(i * 50, j * 50, 50, 50);
+                            ctx.strokeRect(i * 50, j * 50, 50, 50);
                         }
                     }
-
                 }
             }
         }
