@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bandera de Noruega con rectángulos</title>
+<style>
+    canvas {
+        border: 1px solid rgb(12, 1, 1);
+    }
+</style>
+</head>
+<body>
+    <h1>Bandera de Noruega con rectángulos</h1>
+    <canvas id="miCanvas" width="500" height="300"></canvas>
+    <script>
+        window.onload = function() {
+            var canvas = document.getElementById("miCanvas");
+            if (canvas && canvas.getContext) {
+                var ctx = canvas.getContext("2d");
+                if (ctx) {
+                    // Definir dimensiones de la bandera
+                    var banderaWidth = 500;
+                    var banderaHeight = 300;
+
+                    // Dibujar el fondo blanco
+                    ctx.fillStyle = "#ffffff";
+                    ctx.fillRect(0, 0, banderaWidth, banderaHeight);
+
+                    // Dibujar el rectángulo rojo
+                    ctx.fillStyle = "#d81010"; // Rojo Noruego
+                    ctx.fillRect(0, 0, banderaWidth / 6, banderaHeight);
+
+                    // Dibujar el rectángulo azul
+                    ctx.fillStyle = "#d81010"; // Azul Noruego
+                    ctx.fillRect(banderaWidth / 9, 0, banderaWidth * 10 / 3, banderaHeight);
+
+                    // Dibujar el borde blanco alrededor de la cruz azul
+                    var borderWidth = 6; // Grosor del borde
+                    var cruzWidth = banderaWidth / 10;
+                    var cruzHeight = banderaHeight / 5;
+
+                    ctx.fillStyle = "#ffffff"; // Blanco
+                    ctx.fillRect(banderaWidth / 6 - borderWidth, 0 - borderWidth, cruzWidth + borderWidth * 2, banderaHeight + borderWidth * 2);
+                    ctx.fillRect(0 - borderWidth, banderaHeight / 2 - cruzHeight / 2 - borderWidth, banderaWidth + borderWidth * 2, cruzHeight + borderWidth * 2);
+
+                    // Dibujar la cruz azul
+                    ctx.fillStyle = "#00205b"; // Azul Noruego
+                    ctx.fillRect(banderaWidth / 6, 0, cruzWidth, banderaHeight);
+                    ctx.fillRect(0, banderaHeight / 2 - cruzHeight / 2, banderaWidth, cruzHeight);
+                }
+            }
+        }
+    </script>
+</body>
+</html>

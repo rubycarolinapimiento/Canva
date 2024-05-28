@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Canvas básico - Rectágulos</h1>
+    <canvas id="miCanvas" width="500" height="300">
+        Tu navegador no soporta canvas 
+    </canvas>
+    <script>
+        window.onload = function()
+        {
+            var canvas = document.getElementById("miCanvas");
+            if(canvas && canvas.getContext)
+            {
+                var ctx = canvas.getContext("2d");
+                if(ctx)
+                {
+                    // Aqui es donde dibujamos 
+
+                    for(i=0; i<10; i++)
+                    {
+                        for(j=0; j<10; j++)
+                        {
+                            // Definicion de colores 
+                            //ctx.fillStyle= "#00ff00"; // color de relleno
+                            ctx.fillStyle = "rgbaa(175, 122, 197)";
+                            ctx.strokeStyle = "#ff0000"; // Color de borde 
+                            ctx.lineWidth = 5; // Grosor de linea 
+
+                            // Dibujamos rectangulos
+                            ctx.fillRect(i*50,j*50,50,50); // Parametros: (x, y, width, 
+                            ctx.strokeRect(i*50,50,50);
+            
+                        }
+                    }
+
+                }
+            }
+        }
+    </script>
+</body>
+</html>
